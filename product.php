@@ -1,102 +1,152 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Products - Portable Tire Inflator System</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
-</head>
-<body>
-  <div class="container-fluid p-0 min-vh-100">
-    <div class="row g-0 min-vh-100">
- 
-      <!-- Sidebar -->
-      <div class="col-auto bg-dark text-white p-3 d-flex flex-column flex-shrink-0" style="width: 260px;">
-        <a href="layout.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-          <i class="bi bi-tools fs-4 me-2"></i>
-          <span class="fs-5 fw-bold">Tire Inflator Admin</span>
-        </a>
-        <hr>
-        <ul class="nav nav-pills flex-column mb-auto">
-          <li class="nav-item mb-1">
-            <a href="layout.php" class="nav-link text-white"><i class="bi bi-speedometer2 me-2"></i> Dashboard</a>
-          </li>
-          <li class="nav-item mb-1">
-            <a href="products.php" class="nav-link text-white active bg-primary"><i class="bi bi-box-seam me-2"></i> Products</a>
-          </li>
-          <li class="nav-item mb-1">
-            <a href="#" class="nav-link text-white"><i class="bi bi-people me-2"></i> Customers</a>
-          </li>
-          <li class="nav-item mb-1">
-            <a href="#" class="nav-link text-white"><i class="bi bi-person-badge me-2"></i> Staffs</a>
-          </li>
-          <li class="nav-item mb-1">
-            <a href="#" class="nav-link text-white"><i class="bi bi-cart-check me-2"></i> Orders</a>
-          </li>
-          <li class="nav-item mb-1">
-            <a href="#" class="nav-link text-white"><i class="bi bi-list-columns-reverse me-2"></i> Order Details</a>
-          </li>
-          <li class="nav-item mb-1">
-            <a href="#" class="nav-link text-white"><i class="bi bi-receipt me-2"></i> Invoices</a>
-          </li>
-        </ul>
-      </div>
- 
-      <!-- Main Content Area -->
-      <div class="col p-4 bg-light">
-        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm rounded px-3 mb-4">
-          <span class="navbar-brand mb-0 h1">Products Management - Portable Tire Inflator</span>
-        </nav>
-        
-        <div class="card shadow-sm p-4">
-          <div class="d-flex justify-content-between align-items-center mb-3">
-            <h4 class="mb-0">Product List</h4>
-            <button class="btn btn-primary btn-sm"><i class="bi bi-plus-circle me-1"></i> Add New Tire Inflator</button>
-          </div>
-          
-          <table class="table table-striped table-hover align-middle">
-            <thead class="table-dark">
-              <tr>
-                <th>ID</th>
-                <th>Model Name</th>
-                <th>Max Pressure (PSI)</th>
-                <th>Battery Capacity</th>
-                <th>Price (RM)</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Apex Pro Digital Smart Inflator</td>
-                <td>150 PSI</td>
-                <td>6000 mAh</td>
-                <td>RM 149.00</td>
-                <td>
-                  <button class="btn btn-sm btn-warning"><i class="bi bi-pencil"></i></button>
-                  <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
-                </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>VoltX Ultra Mini Compressor</td>
-                <td>120 PSI</td>
-                <td>4000 mAh</td>
-                <td>RM 99.00</td>
-                <td>
-                  <button class="btn btn-sm btn-warning"><i class="bi bi-pencil"></i></button>
-                  <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+<?php
+ob_start();
+?>
 
+<div class="card shadow border-0 border-start border-5 border-primary mb-4">
+    <div class="card-body">
+        <h2 class="mb-1">Products</h2>
+        <p class="text-muted mb-0">Manage and track all your portable tire inflators</p>
     </div>
-  </div>
+</div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <!-- Form Header -->
+        <div class="row g-0 align-items-center mb-3">
+            <div class="col">
+                <h5 class="mb-0">
+                    <i class="bi bi-pencil-square text-primary me-2"></i>
+                    Product Form
+                </h5>
+                <small class="text-muted">Fill in the details of a portable tire inflator</small>
+            </div>
+            <div class="col-auto">
+                <span class="badge bg-primary">* Required fields</span>
+            </div>
+        </div>
+
+        <hr>
+
+        <form action="" method="post" class="needs-validation" novalidate>
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <label for="pid" class="form-label">Product ID <span class="text-danger" aria-hidden="true">*</span></label>
+                    <input name="product_num" id="pid" type="text" class="form-control" placeholder="Enter Product ID" value="" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="name" class="form-label">Name <span class="text-danger" aria-hidden="true">*</span></label>
+                    <input name="product_name" id="name" type="text" class="form-control" placeholder="Enter Product Name" value="" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="price" class="form-label">Price (RM) <span class="text-danger" aria-hidden="true">*</span></label>
+                    <input name="product_price" id="price" type="number" class="form-control" placeholder="Enter Price" value="" required min="0" step="0.01">
+                </div>
+                <div class="col-md-3">
+                    <label for="brand" class="form-label">Brand <span class="text-danger" aria-hidden="true">*</span></label>
+                    <select name="product_brand" id="brand" class="form-select" required>
+                        <option value="">Select Brand</option>
+                        <option value="Xiaomi">Xiaomi</option>
+                        <option value="Baseus">Baseus</option>
+                        <option value="Michelin">Michelin</option>
+                        <option value="Black+Decker">Black+Decker</option>
+                    </select>
+                </div>
+
+                <div class="col-md-3">
+                    <label for="product_condition" class="form-label">Max Pressure <span class="text-danger" aria-hidden="true">*</span></label>
+                    <select name="product_condition" id="product_condition" class="form-select" required>
+                        <option value="">Select Max Pressure</option>
+                        <option value="120 PSI">120 PSI</option>
+                        <option value="150 PSI">150 PSI</option>
+                    </select>
+                </div>
+
+                <div class="col-md-3">
+                    <label for="year" class="form-label">Battery Capacity <span class="text-danger" aria-hidden="true">*</span></label>
+                    <select name="product_year" id="year" class="form-select" required>
+                        <option value="">Select Battery</option>
+                        <option value="4000 mAh">4000 mAh</option>
+                        <option value="6000 mAh">6000 mAh</option>
+                    </select>
+                </div>
+                 
+                <div class="col-md-3">
+                    <label for="quantity" class="form-label">Quantity <span class="text-danger" aria-hidden="true">*</span></label>
+                    <input name="product_quantity" id="quantity" type="number" class="form-control" placeholder="Enter Quantity" value="" required min="0">
+                </div>
+                <div class="col-md-3">
+                    <label for="product_image" class="form-label">Image</label>
+                    <input name="product_image" id="product_image" type="text" class="form-control" placeholder="Enter image filename" value="">
+                </div>
+            </div>
+             
+            <hr class="mt-4 mb-3">
+             
+            <div>
+                <button type="submit" name="create" class="btn btn-primary">
+                    <i class="bi bi-save me-1"></i>Create
+                </button>
+                <button type="reset" class="btn btn-secondary">
+                    <i class="bi bi-arrow-counterclockwise me-1"></i>Clear
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <div class="row align-items-center mb-3">
+            <div class="col">
+                <h5 class="mb-0">
+                    <i class="bi bi-table text-primary me-2"></i>
+                    Product List
+                </h5>
+                <small class="text-muted">View and manage all portable tire inflators in inventory</small>
+            </div>
+            <div class="col-auto">
+                <span class="badge bg-success">Total: 1 items</span>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Product ID</th>
+                        <th>Name</th>
+                        <th>Price (RM)</th>
+                        <th>Brand</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>P001</td>
+                        <td>Smart Portable Tire Inflator Pro</td>
+                        <td>RM 149.00</td>
+                        <td>Xiaomi</td>
+                        <td>
+                            <a href="#" class="btn btn-sm btn-warning">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                            <button type="button" class="btn btn-sm btn-info text-white">
+                                <i class="bi bi-image"></i>
+                            </button>
+                            <a href="#" class="btn btn-sm btn-danger">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<?php
+$content = ob_get_clean();
+require_once 'layout.php';
+?>
